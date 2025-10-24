@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include <QLabel>
 #include <QStack>
+#include <QKeyEvent>
+#include <QMap>
+#include <QPushButton>
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -23,6 +26,8 @@ public:
     QStack<QString>operands;
     QStack<QString>opcodes;
     QString calculation(bool *ok=NULL);
+    QMap<int,QPushButton *>digitBTNs;
+    QMap<int, QPushButton*> funcBTNs;
 private slots:
     void btnNumClicked();
     void btnBinaryOperatorClicked();
@@ -34,6 +39,9 @@ private slots:
     void on_btnClearAll_clicked();
 
     void on_btnEqual_clicked();
+
+    void btnSignClicked();
+    virtual void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;

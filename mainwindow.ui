@@ -7,11 +7,64 @@
     <x>0</x>
     <y>0</y>
     <width>477</width>
-    <height>293</height>
+    <height>423</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>计算器-刘伟华-2023414290318</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 按钮通用基础样式 */
+QPushButton {
+    background-color: #444444;
+    color: #ffffff;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 2px;
+}
+
+/* 按钮悬浮状态 */
+QPushButton:hover {
+    background-color: #555555;
+}
+
+/* 按钮按下状态 */
+QPushButton:pressed {
+    background-color: #333333;
+}
+
+QPushButton[text=&quot;C&quot;], QPushButton[text=&quot;CE&quot;], QPushButton[text=&quot;%&quot;], 
+QPushButton[text=&quot;/&quot;], QPushButton[text=&quot;×&quot;], QPushButton[text=&quot;-&quot;], 
+QPushButton[text=&quot;+&quot;], QPushButton[text=&quot;=&quot;] {
+    background-color: #f5923e; /* 橙色突出功能键 */
+    color: white;
+}
+
+QPushButton[text=&quot;C&quot;]:hover, QPushButton[text=&quot;CE&quot;]:hover, 
+QPushButton[text=&quot;%&quot;]:hover, QPushButton[text=&quot;/&quot;]:hover, 
+QPushButton[text=&quot;×&quot;]:hover, QPushButton[text=&quot;-&quot;]:hover, 
+QPushButton[text=&quot;+&quot;]:hover, QPushButton[text=&quot;=&quot;]:hover {
+    background-color: #f7a053;
+}
+
+QPushButton[text=&quot;C&quot;]:pressed, QPushButton[text=&quot;CE&quot;]:pressed, 
+QPushButton[text=&quot;%&quot;]:pressed, QPushButton[text=&quot;/&quot;]:pressed, 
+QPushButton[text=&quot;×&quot;]:pressed, QPushButton[text=&quot;-&quot;]:pressed, 
+QPushButton[text=&quot;+&quot;]:pressed, QPushButton[text=&quot;=&quot;]:pressed {
+    background-color: #d8833a;
+}
+QLineEdit { 
+    color: #ffffff;
+    font-size: 28px;
+    background-color: #333333;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    text-align: right;
+}
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
