@@ -99,6 +99,7 @@
     <property name="title">
      <string>帮助(&amp;H)</string>
     </property>
+    <addaction name="actionAbout"/>
    </widget>
    <addaction name="menu_F"/>
    <addaction name="menu_E"/>
@@ -343,6 +344,9 @@
    </property>
   </action>
   <action name="actionWrap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/wrap.png</normaloff>:/img/wrap.png</iconset>
@@ -420,6 +424,9 @@
    </property>
   </action>
   <action name="actionShowLineNumber">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/img/linenumber.png</normaloff>:/img/linenumber.png</iconset>
@@ -456,6 +463,17 @@
   <action name="actionEditBackgroundColor">
    <property name="text">
     <string>编辑器背景色</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>关于(&amp;A)</string>
+   </property>
+   <property name="toolTip">
+    <string>关于</string>
    </property>
    <property name="menuRole">
     <enum>QAction::MenuRole::NoRole</enum>

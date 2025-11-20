@@ -18,5 +18,6 @@
         <file>img/replace.png</file>
         <file>img/statusbar.png</file>
         <file>img/toolbar.png</file>
+        <file>img/logo.png</file>
     </qresource>
 </RCC>
