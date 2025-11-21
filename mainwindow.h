@@ -62,6 +62,16 @@ private slots:
 
     void on_actionFont_triggered();
 
+    void on_actionToolBar_triggered();
+
+    void on_actionStatusBar_triggered();
+
+    void on_actionExit_triggered();
+
+    void on_actionShowLineNumber_triggered();
+
+    void on_textEdit_cursorPositionChanged();
+
 private:
     Ui::MainWindow *ui;
     QLabel statusCursorLabel;

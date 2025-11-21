@@ -15,11 +15,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     textChanged=false;
     on_actionNew_triggered();
-    statusLabel.setMaximumWidth(150);
+    statusLabel.setMaximumWidth(180);
     statusLabel.setText("length:"+QString::number(0)+"      line s:"+QString::number(1));
     ui->statusbar->addPermanentWidget(&statusLabel);
 
-    statusCursorLabel.setMaximumWidth(150);
+    statusCursorLabel.setMaximumWidth(180);
     statusCursorLabel.setText("ln:"+QString::number(0)+"      col:"+QString::number(1));
     ui->statusbar->addPermanentWidget(&statusCursorLabel);
     QLabel *author=new QLabel(ui->statusbar);
@@ -39,6 +39,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->textEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
         ui->actionWrap->setChecked(true);
     }
+    ui->actionStatusBar->setChecked(true);
+    ui->actionToolBar->setChecked(true);
+    ui->actionShowLineNumber->setChecked(true);
+
+    connect(ui->actionShowLineNumber, SIGNAL(triggered(bool)), ui->textEdit, SLOT(hideLineNumberArea(bool)));
 }
 
 MainWindow::~MainWindow()
@@ -55,14 +60,14 @@ void MainWindow::on_actionAbout_triggered()
 
 void MainWindow::on_actionFind_triggered()
 {
-    SearchDialog dlg;
+    SearchDialog dlg(this,ui->textEdit);
     dlg.exec();
 }
 
 
 void MainWindow::on_actionReplace_triggered()
 {
-    ReplaceDialog dlg;
+    ReplaceDialog dlg(this,ui->textEdit);
     dlg.exec();
 }
 
@@ -156,6 +161,9 @@ void MainWindow::on_textEdit_textChanged()
         this->setWindowTitle("*"+this->windowTitle());
         textChanged=true;
     }
+    statusLabel.setText("Length: " + QString::number(ui->textEdit->toPlainText().length()) +
+                         " Lines: " +
+                         QString::number(ui->textEdit->document()->lineCount()));
 }
 
 bool MainWindow::userEditConfirmed()
@@ -274,5 +282,50 @@ void MainWindow::on_actionFont_triggered()
     if(ok){
         ui->textEdit->setFont(font);
     }
+}
+
+
+void MainWindow::on_actionToolBar_triggered()
+{
+    bool visible=ui->toolBar->isVisible();
+    ui->toolBar->setVisible(!visible);
+    ui->actionToolBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionStatusBar_triggered()
+{
+    bool visible=ui->statusbar->isVisible();
+    ui->statusbar->setVisible(!visible);
+    ui->actionStatusBar->setChecked(!visible);
+}
+
+
+void MainWindow::on_actionExit_triggered()
+{
+    if(userEditConfirmed()){
+        exit(0);
+    }
+}
+
+
+void MainWindow::on_textEdit_cursorPositionChanged()
+{
+    int col = 0;
+    int ln = 0;
+    int flg = -1;
+    int pos = ui->textEdit->textCursor().position();
+    QString text = ui->textEdit->toPlainText();
+
+    for (int i = 0; i < pos; i++) {
+        if (text[i] == '\n') {
+            ln ++;
+            flg = i;
+        }
+    }
+
+    flg ++;
+    col = pos - flg;
+    statusCursorLabel.setText("Ln: " + QString::number(ln + 1) + "  Col: " + QString::number(col + 1));
 }
 
