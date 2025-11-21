@@ -96,6 +96,7 @@ void MainWindow::on_actionOpen_triggered()
     filePath=filename;
     QTextStream in(&file);
     QString text=in.readAll();
+    ui->textEdit->clear(); // 先清空
     ui->textEdit->insertPlainText(text);
     file.close();
     this->setWindowTitle(QFileInfo(filename).absoluteFilePath());
@@ -106,18 +107,22 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSaveAS_triggered()
 {
-    QString filename =QFileDialog::getOpenFileName(this,"打开文件",".",tr("Text files(*.txt);;All(*.*)"));
+    QString filename = QFileDialog::getSaveFileName(this, "保存文件", ".",
+                                                    tr("Text files (*.txt) "));
     QFile file(filename);
-    if(!file.open(QFile::ReadOnly|QFile::Text)){
-        QMessageBox::warning(this,"..","打开文件失败");
+    if (!file.open(QFile::WriteOnly | QFile::Text)) {
+        QMessageBox::warning(this, "..", "打开保存文件失败");
         return;
     }
-    filePath=filename;
-    QTextStream in(&file);
-    QString text=in.readAll();
-    ui->textEdit->insertPlainText(text);
+
+    filePath = filename;
+    QTextStream out(&file);
+    QString text = ui->textEdit->toPlainText();
+    out << text;
+    file.flush();
     file.close();
-    this->setWindowTitle(QFileInfo(filename).absoluteFilePath());
+
+    this->setWindowTitle(QFileInfo(filePath).absoluteFilePath());
 }
 
 
