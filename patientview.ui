@@ -19,12 +19,20 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QLineEdit" name="txtSearch_2"/>
+        <widget class="QLineEdit" name="txtSearch_2">
+         <property name="placeholderText">
+          <string>请输入姓名进行查找</string>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btSearch_2">
          <property name="text">
           <string>查找</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lab4.qrc">
+           <normaloff>:/imag/search.png</normaloff>:/imag/search.png</iconset>
          </property>
         </widget>
        </item>
@@ -33,6 +41,10 @@
          <property name="text">
           <string>添加</string>
          </property>
+         <property name="icon">
+          <iconset resource="lab4.qrc">
+           <normaloff>:/imag/add.png</normaloff>:/imag/add.png</iconset>
+         </property>
         </widget>
        </item>
        <item>
@@ -40,12 +52,20 @@
          <property name="text">
           <string>删除</string>
          </property>
+         <property name="icon">
+          <iconset resource="lab4.qrc">
+           <normaloff>:/imag/delete.png</normaloff>:/imag/delete.png</iconset>
+         </property>
         </widget>
        </item>
        <item>
         <widget class="QPushButton" name="btEdit_2">
          <property name="text">
           <string>修改</string>
+         </property>
+         <property name="icon">
+          <iconset resource="lab4.qrc">
+           <normaloff>:/imag/edit.png</normaloff>:/imag/edit.png</iconset>
          </property>
         </widget>
        </item>
@@ -58,6 +78,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="lab4.qrc"/>
+ </resources>
  <connections/>
 </ui>

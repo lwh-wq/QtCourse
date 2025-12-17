@@ -1,7 +1,12 @@
 <RCC>
     <qresource prefix="/">
-        <file>imag/login.png</file>
         <file>imag/return.png</file>
         <file>imag/logout.png</file>
+        <file>imag/add.png</file>
+        <file>imag/delete.png</file>
+        <file>imag/edit.png</file>
+        <file>imag/search.png</file>
+        <file>imag/signup.png</file>
+        <file>imag/signin.png</file>
     </qresource>
 </RCC>

@@ -1,13 +1,18 @@
 #include "masterview.h"
 #include "ui_masterview.h"
 #include <QDebug>
+#include <idatabase.h>
 MasterView::MasterView(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MasterView)
 {
     ui->setupUi(this);
+
     this->setWindowFlag(Qt::FramelessWindowHint);
+
     goLoginView();
+
+    IDatabase::getInstance();
 }
 
 MasterView::~MasterView()
@@ -43,17 +48,18 @@ void MasterView::goDepartmentView()
     pushWidgeToStackView(departmentView);
 }
 
-void MasterView::goPatientEditView()
+void MasterView::goPatientEditView(int rowNo)
 {
-    patientEditView=new PatientEditView(this);
+    patientEditView=new PatientEditView(this,rowNo);
     pushWidgeToStackView(patientEditView);
+    connect(patientEditView,SIGNAL(goPreviousView()),this,SLOT(goPreviousView()));
 }
 
 void MasterView::goPatientView()
 {
     patientView=new PatientView(this);
     pushWidgeToStackView(patientView);
-    connect(patientView,SIGNAL(goPatientEditView()),this,SLOT(goPatientEditView()));
+    connect(patientView,SIGNAL(goPatientEditView(int)),this,SLOT(goPatientEditView(int)));
 }
 
 void MasterView::goPreviousView()
