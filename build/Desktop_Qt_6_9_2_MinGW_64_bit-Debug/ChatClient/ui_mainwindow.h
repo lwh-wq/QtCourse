@@ -65,7 +65,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(355, 256);
+        MainWindow->resize(500, 400);
+        MainWindow->setMinimumSize(QSize(500, 400));
         MainWindow->setStyleSheet(QString::fromUtf8("/* \346\240\207\351\242\230\346\240\267\345\274\217\357\274\232Qt\345\205\274\345\256\271\347\211\210\357\274\214\346\233\264\351\206\222\347\233\256\344\270\224\346\234\211\345\261\202\346\254\241\346\204\237 */\n"
 "#titleLabel {\n"
 "    background: #f8f9fa; /* \346\265\205\347\201\260\350\203\214\346\231\257\346\233\264\346\237\224\345\222\214 */\n"
@@ -127,6 +128,7 @@ public:
 
         loginFram = new QFrame(loginPage);
         loginFram->setObjectName("loginFram");
+        loginFram->setMinimumSize(QSize(0, 0));
         loginFram->setFrameShape(QFrame::Shape::StyledPanel);
         loginFram->setFrameShadow(QFrame::Shadow::Raised);
         verticalLayout_3 = new QVBoxLayout(loginFram);
@@ -246,7 +248,9 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "\350\201\212\345\244\251\345\256\244\345\256\242\346\210\267\347\253\257", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "\346\234\215\345\212\241\345\231\250\345\234\260\345\235\200\357\274\232", nullptr));
+        serverEdit->setText(QCoreApplication::translate("MainWindow", "127.0.0.1", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "\346\230\265\347\247\260\357\274\232", nullptr));
+        usernameEdit->setText(QCoreApplication::translate("MainWindow", "lwh", nullptr));
         loginButton->setText(QCoreApplication::translate("MainWindow", "\347\231\273\345\275\225\350\201\212\345\244\251\345\256\244", nullptr));
         sayButton->setText(QCoreApplication::translate("MainWindow", "\345\217\221\351\200\201", nullptr));
         logoutButton->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272", nullptr));

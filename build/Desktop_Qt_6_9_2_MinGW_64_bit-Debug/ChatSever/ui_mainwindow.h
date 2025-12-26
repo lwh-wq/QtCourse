@@ -38,7 +38,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(357, 259);
+        MainWindow->resize(500, 400);
+        MainWindow->setMinimumSize(QSize(500, 400));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayout_2 = new QVBoxLayout(centralwidget);

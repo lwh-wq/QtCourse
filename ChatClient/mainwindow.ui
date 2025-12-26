@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>355</width>
-    <height>256</height>
+    <width>500</width>
+    <height>400</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>500</width>
+    <height>400</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>聊天室客户端</string>
@@ -109,6 +115,12 @@
         </item>
         <item row="1" column="1">
          <widget class="QFrame" name="loginFram">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="frameShape">
            <enum>QFrame::Shape::StyledPanel</enum>
           </property>
@@ -141,6 +153,9 @@
                    <height>16777215</height>
                   </size>
                  </property>
+                 <property name="text">
+                  <string>127.0.0.1</string>
+                 </property>
                 </widget>
                </item>
               </layout>
@@ -167,6 +182,9 @@
                    <width>140</width>
                    <height>16777215</height>
                   </size>
+                 </property>
+                 <property name="text">
+                  <string>lwh</string>
                  </property>
                 </widget>
                </item>

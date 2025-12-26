@@ -11,13 +11,18 @@ public:
 
 protected:
     void incomingConnection(qintptr socketDescriptor) override;
+    QVector<ServerWorker*> m_clients;
+    void broadcast(const QJsonObject &message,ServerWorker *exclude);
 
 signals:
     void logMessage(const QString &msg);
 
+
 public slots:
     void stopServer();
-    QVector<ServerWorker*> m_clients;
+    void jsonReceived(ServerWorker *sender,const QJsonObject &docObj);
+
+
 };
 
 #endif // CHATSERVER_H
