@@ -2,67 +2,151 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>477</width>
-    <height>423</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>计算器-刘伟华-2023414290318</string>
-  </property>
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>420</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="windowTitle">
+    <string>现代计算器</string>
+   </property>
   <property name="styleSheet">
-   <string notr="true">/* 按钮通用基础样式 */
-QPushButton {
-    background-color: #444444;
+   <string notr="true">/* 主窗口背景 */
+QMainWindow {
+    background-color: #1a1a1a;
+}
+
+/* 计算器主容器 */
+QWidget#centralwidget {
+    background-color: #1a1a1a;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 10px;
+}
+
+/* 显示区域样式 */
+QLineEdit#display {
     color: #ffffff;
-    font-size: 16px;
+    font-size: 48px;
+    font-weight: 300;
+    background: linear-gradient(135deg, #2d2d2d 0%, #252525 100%);
+    border: 2px solid #3a3a3a;
+    border-radius: 12px;
+    padding: 24px 20px;
+    text-align: right;
+    margin-bottom: 20px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    min-height: 80px;
+}
+
+/* 数字按钮样式 */
+QPushButton {
+    background: linear-gradient(135deg, #3d3d3d 0%, #2d2d2d 100%);
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 500;
     border: none;
-    border-radius: 6px;
-    padding: 12px;
-    margin: 2px;
+    border-radius: 16px;
+    padding: 20px;
+    margin: 8px;
+    min-width: 60px;
+    min-height: 60px;
 }
 
 /* 按钮悬浮状态 */
 QPushButton:hover {
-    background-color: #555555;
+    background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
 }
 
 /* 按钮按下状态 */
 QPushButton:pressed {
-    background-color: #333333;
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
 }
 
+/* 功能按钮样式 */
 QPushButton[text=&quot;C&quot;], QPushButton[text=&quot;CE&quot;], QPushButton[text=&quot;%&quot;], 
-QPushButton[text=&quot;/&quot;], QPushButton[text=&quot;×&quot;], QPushButton[text=&quot;-&quot;], 
-QPushButton[text=&quot;+&quot;], QPushButton[text=&quot;=&quot;] {
-    background-color: #f5923e; /* 橙色突出功能键 */
-    color: white;
+QPushButton[text=&quot;⌫&quot;] {
+    background: linear-gradient(135deg, #6b6b6b 0%, #5a5a5a 100%);
+    color: #ffffff;
+    font-size: 20px;
 }
 
 QPushButton[text=&quot;C&quot;]:hover, QPushButton[text=&quot;CE&quot;]:hover, 
-QPushButton[text=&quot;%&quot;]:hover, QPushButton[text=&quot;/&quot;]:hover, 
-QPushButton[text=&quot;×&quot;]:hover, QPushButton[text=&quot;-&quot;]:hover, 
-QPushButton[text=&quot;+&quot;]:hover, QPushButton[text=&quot;=&quot;]:hover {
-    background-color: #f7a053;
+QPushButton[text=&quot;%&quot;]:hover, QPushButton[text=&quot;⌫&quot;]:hover {
+    background: linear-gradient(135deg, #7a7a7a 0%, #6a6a6a 100%);
 }
 
 QPushButton[text=&quot;C&quot;]:pressed, QPushButton[text=&quot;CE&quot;]:pressed, 
-QPushButton[text=&quot;%&quot;]:pressed, QPushButton[text=&quot;/&quot;]:pressed, 
-QPushButton[text=&quot;×&quot;]:pressed, QPushButton[text=&quot;-&quot;]:pressed, 
-QPushButton[text=&quot;+&quot;]:pressed, QPushButton[text=&quot;=&quot;]:pressed {
-    background-color: #d8833a;
+QPushButton[text=&quot;%&quot;]:pressed, QPushButton[text=&quot;⌫&quot;]:pressed {
+    background: linear-gradient(135deg, #5a5a5a 0%, #4a4a4a 100%);
 }
-QLineEdit { 
+
+/* 运算符按钮样式 */
+QPushButton[text=&quot;/&quot;], QPushButton[text=&quot;×&quot;], QPushButton[text=&quot;-&quot;], 
+QPushButton[text=&quot;+&quot;] {
+    background: linear-gradient(135deg, #f7931e 0%, #e0831d 100%);
+    color: white;
+    font-size: 24px;
+}
+
+QPushButton[text=&quot;/&quot;]:hover, QPushButton[text=&quot;×&quot;]:hover, 
+QPushButton[text=&quot;-&quot;]:hover, QPushButton[text=&quot;+&quot;]:hover {
+    background: linear-gradient(135deg, #ff9c27 0%, #f78e1e 100%);
+}
+
+QPushButton[text=&quot;/&quot;]:pressed, QPushButton[text=&quot;×&quot;]:pressed, 
+QPushButton[text=&quot;-&quot;]:pressed, QPushButton[text=&quot;+&quot;]:pressed {
+    background: linear-gradient(135deg, #e0831d 0%, #c9741a 100%);
+}
+
+/* 等号按钮样式 */
+QPushButton[text=&quot;=&quot;] {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    color: white;
+    font-size: 24px;
+}
+
+QPushButton[text=&quot;=&quot;]:hover {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+}
+
+QPushButton[text=&quot;=&quot;]:pressed {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+}
+
+/* 特殊功能按钮样式 */
+QPushButton[text=&quot;1/x&quot;], QPushButton[text=&quot;x^2&quot;], QPushButton[text=&quot;√&quot;], 
+QPushButton[text=&quot;+/-&quot;] {
+    background: linear-gradient(135deg, #6f42c1 0%, #5a32a3 100%);
+    color: white;
+    font-size: 18px;
+}
+
+QPushButton[text=&quot;1/x&quot;]:hover, QPushButton[text=&quot;x^2&quot;]:hover, 
+QPushButton[text=&quot;√&quot;]:hover, QPushButton[text=&quot;+/-&quot;]:hover {
+    background: linear-gradient(135deg, #7c5cb0 0%, #6a4c93 100%);
+}
+
+QPushButton[text=&quot;1/x&quot;]:pressed, QPushButton[text=&quot;x^2&quot;]:pressed, 
+QPushButton[text=&quot;√&quot;]:pressed, QPushButton[text=&quot;+/-&quot;]:pressed {
+    background: linear-gradient(135deg, #5a32a3 0%, #4a2887 100%);
+}
+
+/* 零按钮样式 */
+QPushButton[text=&quot;0&quot;] {
+    min-width: 136px;
+}
+
+/* 状态栏样式 */
+QStatusBar {
+    background-color: #2d2d2d;
     color: #ffffff;
-    font-size: 28px;
-    background-color: #333333;
-    border: none;
-    border-radius: 8px;
-    padding: 12px;
-    text-align: right;
+    font-size: 12px;
+    border-top: 1px solid #3a3a3a;
+    padding: 4px 10px;
 }
 </string>
   </property>
@@ -332,10 +416,10 @@ QLineEdit {
         </property>
        </widget>
       </item>
-      <item row="6" column="1">
+      <item row="6" column="0" colspan="2">
        <widget class="QPushButton" name="btnNum0">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -345,10 +429,10 @@ QLineEdit {
         </property>
        </widget>
       </item>
-      <item row="5" column="3">
+      <item row="5" column="3" rowspan="2">
        <widget class="QPushButton" name="btnPlus">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -361,7 +445,7 @@ QLineEdit {
       <item row="5" column="1">
        <widget class="QPushButton" name="btnNum2">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -374,7 +458,7 @@ QLineEdit {
       <item row="3" column="1">
        <widget class="QPushButton" name="btnNum8">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -387,7 +471,7 @@ QLineEdit {
       <item row="5" column="0">
        <widget class="QPushButton" name="btnNum1">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
